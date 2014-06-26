@@ -13,7 +13,7 @@
                     {name: "demo"},
                     // success callback
                     function (msg) {
-                        alert("success: " + msg);
+                        alert("success: " + msg);                        
                     },
                     // error callback
                     function (msg) {
