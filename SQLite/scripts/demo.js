@@ -71,8 +71,7 @@
                             "select count(id) as cnt from test;",
                             [],
                             function(tx, res) {
-                                alert("res.rows.length " + res.rows.length + "\n" + // TODO remove if WP8 also reports the correct nr for the second row
-                                      "res.rows.item(0).cnt: " + res.rows.item(0).cnt);
+                                alert("rows: " + res.rows.item(0).cnt);
                             },
                             function(tx, res) {
                                 alert('error: ' + res.message);
