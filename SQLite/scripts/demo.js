@@ -98,16 +98,8 @@
                 return true;
             }
             return false;
-        },
-
-        // callbacks
-        onSuccess: function(msg) {
-            console.log('SocialSharing success: ' + msg);
-        },
-
-        onError: function(msg) {
-            alert('SocialSharing error: ' + msg);
         }
+
     });
 
     app.demoService = {
