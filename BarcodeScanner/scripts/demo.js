@@ -31,15 +31,14 @@
             if (!this.checkSimulator()) {
                 cordova.plugins.barcodeScanner.encode(
 
-                    // type: TODO
-                    cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, // note, not: BarcodeScanner.Encode.TEXT_TYPE
+                    // pick one of TEXT_TYPE / EMAIL_TYPE / PHONE_TYPE / SMS_TYPE
+                    cordova.plugins.barcodeScanner.Encode.TEXT_TYPE,
 
-                    // what: TODO
+                    // the thing to encode - for a link use TEXT_TYPE above
                     "http://www.telerik.com",
 
-                    // success callback
+                    // success callback (will currently not be invoked)
                     function (result) {
-                        // TODO show in-line (see mails with Rob about encoding issues.. and my demo (appbuilder playground?) project)
                         alert("Encoding succeeded: " + result);
                     },
 
