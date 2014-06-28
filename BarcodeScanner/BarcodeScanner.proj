@@ -14,7 +14,7 @@
     <AndroidHardwareAcceleration>false</AndroidHardwareAcceleration>
     <WP8SupportedResolutions>ID_RESOLUTION_WVGA;ID_RESOLUTION_WXGA;ID_RESOLUTION_HD720P</WP8SupportedResolutions>
     <BundleVersion>1.0</BundleVersion>
-    <DisplayName>BarcodeS plugin demo</DisplayName>
+    <DisplayName>BarcodeScanner plugin demo</DisplayName>
     <Author>Telerik</Author>
     <Description>BarcodeScanner-DemoApp</Description>
     <WP8Capabilities>ID_CAP_IDENTITY_DEVICE;ID_CAP_NETWORKING;ID_CAP_REMOVABLE_STORAGE</WP8Capabilities>
