@@ -1,0 +1,43 @@
+{
+  "ProjectGuid": "335aefc0-9dfa-46b1-b3b7-af18eacf6754",
+  "AppIdentifier": "com.telerik.plugindemo.barcodescanner",
+  "ProjectName": "BarcodeScanner",
+  "IsRunnable": "true",
+  "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
+  "FrameworkVersion": "3.2.0",
+  "AndroidPermissions": [
+    "android.permission.READ_PHONE_STATE",
+    "android.permission.INTERNET",
+    "android.permission.WRITE_EXTERNAL_STORAGE",
+    "android.permission.ACCESS_NETWORK_STATE",
+    "android.permission.GET_TASKS"
+  ],
+  "CorePlugins": [
+    "org.apache.cordova.console",
+    "org.apache.cordova.device",
+    "org.apache.cordova.network-information",
+    "org.apache.cordova.splashscreen",
+    "org.apache.cordova.statusbar"
+  ],
+  "DeviceOrientations": [
+    "Portrait",
+    "Landscape"
+  ],
+  "iOSStatusBarStyle": "Default",
+  "AndroidHardwareAcceleration": "false",
+  "WP8SupportedResolutions": [
+    "ID_RESOLUTION_WVGA",
+    "ID_RESOLUTION_WXGA",
+    "ID_RESOLUTION_HD720P"
+  ],
+  "BundleVersion": "1.0",
+  "DisplayName": "BarcodeScanner plugin demo",
+  "Author": "Telerik",
+  "Description": "BarcodeScanner-DemoApp",
+  "WP8Capabilities": [
+    "ID_CAP_IDENTITY_DEVICE",
+    "ID_CAP_NETWORKING",
+    "ID_CAP_REMOVABLE_STORAGE"
+  ],
+  "Framework": "Cordova"
+}
