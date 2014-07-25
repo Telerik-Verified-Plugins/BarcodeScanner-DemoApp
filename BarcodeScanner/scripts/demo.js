@@ -52,10 +52,14 @@
 
         checkSimulator: function() {
             if (window.navigator.simulator === true) {
-                alert('Plugins are not available in the simulator.');
+                alert('This plugin is not available in the simulator.');
                 return true;
+            } else if (window.cordova === undefined) {
+                alert('Plugin not found. Maybe you are running in AppBuilder Companion app which currently does not support this plugin.');
+                return true;
+            } else {
+                return false;
             }
-            return false;
         }
 
     });
