@@ -51,9 +51,12 @@
         <div class="demo">
             <h3 class="hassubtitle">Scanning</h3>
             <div class="subtitle">
-                Scan a QR code or any type of barcode
+                Scan a QR code or any type of barcode. Front camera and flip are available on iOS and Android (provided the device has multiple cameras).
             </div>
-            <button data-role="button" class="button" data-bind="click: scan">Scan</button>
+            <button data-role="button" class="button" data-bind="click: scanBack">Scan with back camera</button>
+            <button data-role="button" class="button" data-bind="click: scanBackFlip">Scan with back camera and flip option</button>
+            <button data-role="button" class="button" data-bind="click: scanFront">Scan with front camera</button>
+            <button data-role="button" class="button" data-bind="click: scanFrontFlip">Scan with front camera and flip option</button>
             <br/>
 
             <h3 class="hassubtitle">Encoding</h3>

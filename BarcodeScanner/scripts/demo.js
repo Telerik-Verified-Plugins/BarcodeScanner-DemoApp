@@ -4,11 +4,27 @@
 
     DemoViewModel = kendo.data.ObservableObject.extend({
 
-        scan: function () {
+        scanBack: function () {
+            this.scan(false, false);
+        },
+
+        scanBackFlip: function () {
+            this.scan(false, true);
+        },
+
+        scanFront: function () {
+            this.scan(true, false);
+        },
+
+        scanFrontFlip: function () {
+            this.scan(true, true);
+        },
+
+        scan: function (preferFrontCamera, showFlipCameraButton) {
             if (!this.checkSimulator()) {
                 cordova.plugins.barcodeScanner.scan(
 
-                    // success callback
+                    // success callback function
                     function (result) {
                         // wrapping in a timeout so the dialog doesn't free the app
                         setTimeout(function() {
@@ -19,9 +35,15 @@
                         }, 0);
                     },
 
-                    // error callback
+                    // error callback function
                     function (error) {
                         alert("Scanning failed: " + error);
+                    },
+                    
+                    // options objects
+                    {
+                        "preferFrontCamera" : preferFrontCamera, // default false
+                        "showFlipCameraButton" : showFlipCameraButton // default false
                     }
                 );
             }
