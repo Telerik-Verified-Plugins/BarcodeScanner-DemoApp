@@ -22,7 +22,10 @@ import android.graphics.Rect;
 import android.hardware.Camera;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Display;
+import android.view.Surface;
 import android.view.SurfaceHolder;
+import android.view.WindowManager;
 import com.google.zxing.PlanarYUVLuminanceSource;
 import com.google.zxing.client.android.camera.open.OpenCameraManager;
 
@@ -41,8 +44,8 @@ public final class CameraManager {
 
   private static final int MIN_FRAME_WIDTH = 240;
   private static final int MIN_FRAME_HEIGHT = 240;
-  private static final int MAX_FRAME_WIDTH = 600;
-  private static final int MAX_FRAME_HEIGHT = 400;
+  private static final int MAX_FRAME_WIDTH = 880;
+  private static final int MAX_FRAME_HEIGHT = 680;
 
   private final Context context;
   private final CameraConfigurationManager configManager;
@@ -54,6 +57,8 @@ public final class CameraManager {
   private boolean previewing;
   private int requestedFramingRectWidth;
   private int requestedFramingRectHeight;
+  private WindowManager windowManager;
+
   /**
    * Preview frames are delivered here, which we pass on to the registered handler. Make sure to
    * clear the handler so it will only receive one message.
@@ -61,9 +66,10 @@ public final class CameraManager {
   private final PreviewCallback previewCallback;
 
   public CameraManager(Context context) {
-    this.context = context;
+    this.context = context.getApplicationContext();
     this.configManager = new CameraConfigurationManager(context);
     previewCallback = new PreviewCallback(configManager);
+    windowManager = (WindowManager) this.context.getSystemService(Context.WINDOW_SERVICE);
   }
 
   /**
@@ -224,8 +230,10 @@ public final class CameraManager {
         height = MAX_FRAME_HEIGHT;
       }
       int leftOffset = (screenResolution.x - width) / 2;
-      int topOffset = (screenResolution.y - height) / 2;
-      framingRect = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + height);
+      int topOffset, bottomOffset;
+      topOffset = (screenResolution.y - height) / 2;
+      bottomOffset =  topOffset + height;
+      framingRect = new Rect(leftOffset, topOffset, leftOffset + width, bottomOffset);
       Log.d(TAG, "Calculated framing rect: " + framingRect);
     }
     return framingRect;
@@ -248,10 +256,21 @@ public final class CameraManager {
         // Called early, before init even finished
         return null;
       }
-      rect.left = rect.left * cameraResolution.x / screenResolution.x;
-      rect.right = rect.right * cameraResolution.x / screenResolution.x;
-      rect.top = rect.top * cameraResolution.y / screenResolution.y;
-      rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
+
+      Display display = windowManager.getDefaultDisplay();
+      int rotation = display.getRotation();
+      if (rotation == Surface.ROTATION_0) {
+        rect.left = rect.left * cameraResolution.y / screenResolution.x;
+        rect.right = rect.right * cameraResolution.y / screenResolution.x;
+        rect.top = rect.top * cameraResolution.x / screenResolution.y;
+        rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;
+      } else {
+        rect.left = rect.left * cameraResolution.x / screenResolution.x;
+        rect.right = rect.right * cameraResolution.x / screenResolution.x;
+        rect.top = rect.top * cameraResolution.y / screenResolution.y;
+        rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
+      }
+
       framingRectInPreview = rect;
     }
     return framingRectInPreview;
@@ -266,16 +285,7 @@ public final class CameraManager {
    */
   public synchronized void setManualFramingRect(int width, int height) {
     if (initialized) {
-      Point screenResolution = configManager.getScreenResolution();
-      if (width > screenResolution.x) {
-        width = screenResolution.x;
-      }
-      if (height > screenResolution.y) {
-        height = screenResolution.y;
-      }
-      int leftOffset = (screenResolution.x - width) / 2;
-      int topOffset = (screenResolution.y - height) / 2;
-      framingRect = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + height);
+      framingRect = getFramingRect();
       Log.d(TAG, "Calculated manual framing rect: " + framingRect);
       framingRectInPreview = null;
     } else {
@@ -300,7 +310,6 @@ public final class CameraManager {
     }
     // Go ahead and assume it's YUV rather than die.
     return new PlanarYUVLuminanceSource(data, width, height, rect.left, rect.top,
-                                        rect.width(), rect.height(), false);
+        rect.width(), rect.height(), false);
   }
-
 }
