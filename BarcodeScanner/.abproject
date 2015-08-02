@@ -13,6 +13,7 @@
     "android.permission.GET_TASKS"
   ],
   "CorePlugins": [
+    "com.phonegap.plugins.barcodescanner@1.2.10",
     "cordova-plugin-console",
     "cordova-plugin-crosswalk-webview@1.2.0",
     "cordova-plugin-device",
