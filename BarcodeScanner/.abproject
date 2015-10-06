@@ -13,14 +13,14 @@
     "android.permission.GET_TASKS"
   ],
   "CorePlugins": [
-    "com.phonegap.plugins.barcodescanner@1.2.10",
+    "com.phonegap.plugins.barcodescanner@1.2.12",
     "cordova-plugin-console",
     "cordova-plugin-crosswalk-webview@1.2.0",
     "cordova-plugin-device",
     "cordova-plugin-dialogs",
-    "cordova-plugin-network-information",
     "cordova-plugin-splashscreen",
-    "cordova-plugin-statusbar"
+    "cordova-plugin-statusbar",
+    "cordova-plugin-whitelist"
   ],
   "DeviceOrientations": [
     "Portrait",
@@ -33,8 +33,8 @@
     "ID_RESOLUTION_WXGA",
     "ID_RESOLUTION_HD720P"
   ],
-  "BundleVersion": "1.0",
-  "DisplayName": "BarcodeScanner plugin demo",
+  "BundleVersion": "1.0.1",
+  "DisplayName": "Barcode demo",
   "Author": "Telerik",
   "Description": "BarcodeScanner-DemoApp",
   "WP8Capabilities": [
@@ -49,5 +49,5 @@
   "WP8PublisherID": "{052f52dc-1b2a-4bc8-8ac5-094e82f30140}",
   "WP8ProductID": "{143416af-e090-492d-8aa7-2797e3c45199}",
   "CordovaPluginVariables": {},
-  "AndroidVersionCode": "2"
+  "AndroidVersionCode": "3"
 }
