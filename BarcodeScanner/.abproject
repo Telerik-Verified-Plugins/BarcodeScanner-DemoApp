@@ -32,7 +32,7 @@
     "ID_RESOLUTION_WXGA",
     "ID_RESOLUTION_HD720P"
   ],
-  "BundleVersion": "1.0.1",
+  "BundleVersion": "1.0.2",
   "DisplayName": "Barcode demo",
   "Author": "Telerik",
   "Description": "BarcodeScanner-DemoApp",
@@ -48,5 +48,5 @@
   "WP8PublisherID": "{052f52dc-1b2a-4bc8-8ac5-094e82f30140}",
   "WP8ProductID": "{143416af-e090-492d-8aa7-2797e3c45199}",
   "CordovaPluginVariables": {},
-  "AndroidVersionCode": "3"
+  "AndroidVersionCode": "4"
 }
