@@ -1,6 +1,6 @@
 {
   "ProjectGuid": "335aefc0-9dfa-46b1-b3b7-af18eacf6754",
-  "AppIdentifier": "com.telerik.plugindemo.cordova.barcodescanner",
+  "AppIdentifier": "com.telerik.plugindemo.barcodescanner",
   "ProjectName": "BarcodeScanner",
   "IsRunnable": "true",
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
@@ -13,7 +13,7 @@
     "android.permission.GET_TASKS"
   ],
   "CorePlugins": [
-    "com.phonegap.plugins.barcodescanner@5.0.0",
+    "com.phonegap.plugins.barcodescanner@2.0.0",
     "cordova-plugin-console",
     "cordova-plugin-device",
     "cordova-plugin-dialogs",
@@ -32,7 +32,7 @@
     "ID_RESOLUTION_WXGA",
     "ID_RESOLUTION_HD720P"
   ],
-  "BundleVersion": "1.0.4",
+  "BundleVersion": "1.0.2",
   "DisplayName": "Barcode demo",
   "Author": "Telerik",
   "Description": "BarcodeScanner-DemoApp",

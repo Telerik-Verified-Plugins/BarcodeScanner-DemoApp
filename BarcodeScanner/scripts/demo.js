@@ -49,7 +49,7 @@
             }
         },
 
-        encode: function () {
+        encodeUrl: function () {
             if (!this.checkSimulator()) {
                 cordova.plugins.barcodeScanner.encode(
 
@@ -61,7 +61,7 @@
 
                     // success callback (will currently not be invoked)
                     function (result) {
-                        alert("Encoding succeeded: " + result);
+                        alert("Encoding succeeded: " + JSON.stringify(result));
                     },
 
                     // error callback
