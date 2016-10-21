@@ -4,22 +4,23 @@
   "ProjectName": "BarcodeScanner",
   "IsRunnable": "true",
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
-  "FrameworkVersion": "4.0.0",
+  "FrameworkVersion": "5.0.0",
   "AndroidPermissions": [
-    "android.permission.READ_PHONE_STATE",
-    "android.permission.INTERNET",
-    "android.permission.WRITE_EXTERNAL_STORAGE",
     "android.permission.ACCESS_NETWORK_STATE",
-    "android.permission.GET_TASKS"
+    "android.permission.CAMERA",
+    "android.permission.GET_TASKS",
+    "android.permission.INTERNET",
+    "android.permission.READ_PHONE_STATE",
+    "android.permission.WRITE_EXTERNAL_STORAGE"
   ],
   "CorePlugins": [
-    "com.phonegap.plugins.barcodescanner@5.0.0",
     "cordova-plugin-console",
     "cordova-plugin-device",
     "cordova-plugin-dialogs",
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
-    "cordova-plugin-whitelist"
+    "cordova-plugin-whitelist",
+    "com.phonegap.plugins.barcodescanner@6.0.3"
   ],
   "DeviceOrientations": [
     "Portrait",
@@ -32,7 +33,7 @@
     "ID_RESOLUTION_WXGA",
     "ID_RESOLUTION_HD720P"
   ],
-  "BundleVersion": "1.0.2",
+  "BundleVersion": "1.0.3",
   "DisplayName": "Barcode demo",
   "Author": "Telerik",
   "Description": "BarcodeScanner-DemoApp",
